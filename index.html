@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Year of Friendship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div id="confetti-bg" class="confetti-bg"></div>
+
+  <!-- Ambient background floating hearts & stars for page 9 -->
+  <div id="ambient-decor" class="ambient-decor">
+    <span class="amb-1">♥</span>
+    <span class="amb-2">✨</span>
+    <span class="amb-3">⭐</span>
+  </div>
+
+  <!-- Header Bar -->
+  <header class="header-bar">
+    <div class="header-left">
+      <button id="back-btn" class="neo-btn back-btn" onclick="prevStep()">
+        ← Back
+      </button>
+    </div>
+    <div class="header-right">
+      <div class="step-pill">
+        <span>Me & Louiss</span>
+        <span class="dot">•</span>
+        <span id="step-counter">1/9</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-main">
+    <!-- STEP 1: ANNOUNCEMENT -->
+    <section id="step-1" class="step-screen active">
+      <div class="floating-emoji float-left">⭐</div>
+      <div class="floating-emoji float-right">🚨</div>
+
+      <div class="announcement-badge">
+        <span>🚨</span>
+        <span>IMPORTANT ANNOUNCEMENT</span>
+        <span>🚨</span>
+      </div>
+
+      <div class="headline-group">
+        <h1 class="headline-sub">09|10|2025...</h1>
+        <h2 class="headline-sub">Remember??...</h2>
+        <div class="big-colored-titles">
+          <h2 class="title-survived">WE HAVE SURVIVED</h2>
+          <h2 class="title-year">ONE WHOLE YEAR OF</h2>
+          <h2 class="title-friendship">FRIENDSHIP.</h2>
+        </div>
+      </div>
+
+      <p class="subtitle-text">
+        Before continuing, please confirm you are actually ready to witness the evidence.
+      </p>
+
+      <button class="neo-btn btn-green big-btn" onclick="startJourney()">
+        Yes, show me the nonsense →
+      </button>
+    </section>
+
+    <!-- STEP 2: TIMELINE -->
+    <section id="step-2" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">Me × Louisss</p>
+        <h2 class="section-title">How this even started</h2>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Timeline column -->
+        <div class="timeline-left">
+          <div class="timeline-line"></div>
+          <div class="timeline-items">
+            <div class="timeline-row">
+              <div class="badge-num bg-yellow">01</div>
+              <div class="chapter-card bg-yellow">
+                <span class="chapter-tag">CHAPTER 01</span>
+                <h3>The Team Formation</h3>
+                <p>Its not the first time we met but its were everything started</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="badge-num bg-blue">02</div>
+              <div class="chapter-card bg-blue">
+                <span class="chapter-tag">CHAPTER 02</span>
+                <h3>The First Proper Conversation</h3>
+                <p>Started with problem statements ..Somehow one conversation became many.</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="badge-num bg-green">03</div>
+              <div class="chapter-card bg-green">
+                <span class="chapter-tag">CHAPTER 03</span>
+                <h3>The "Wait... You're Actually Funny" Phase</h3>
+                <p>This was probably the beginning...</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="badge-num bg-orange">04</div>
+              <div class="chapter-card bg-orange">
+                <span class="chapter-tag">CHAPTER 04</span>
+                <h3>The Friendship Era</h3>
+                <p>We started sharing more and more ..</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="badge-num bg-red">05</div>
+              <div class="chapter-card bg-red">
+                <span class="chapter-tag">CHAPTER 05</span>
+                <h3>Somehow It's Been A Year</h3>
+                <p>And here we are.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Polaroid Column -->
+        <div class="timeline-right">
+          <div class="polaroid-card">
+            <div class="washi-tape"></div>
+            <input type="file" id="photo-input" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)" />
+            <div class="polaroid-photo-box" onclick="document.getElementById('photo-input').click()">
+              <img id="polaroid-img" src="photo.jpg" style="display:block;" alt="Our photo" />
+              <div id="polaroid-placeholder" class="placeholder-text" style="display: none;" >
+                <strong>[YOUR PHOTO HERE]</strong>
+                <small>(click to upload)</small>
+              </div>
+            </div>
+            <p class="polaroid-caption">exhibit A: us</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Continue the investigation →
+      </button>
+    </section>
+
+    <!-- STEP 3: STATISTICS -->
+    <section id="step-3" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">extremely scientific data</p>
+        <h2 class="section-title">📊 Friendship Statistics</h2>
+      </div>
+
+      <div class="stats-wrapper">
+        <div class="stats-grid">
+          <div class="stat-card bg-yellow">
+            <div class="stat-val">999+</div>
+            <div class="stat-lbl">Unnecessary conversations</div>
+          </div>
+          <div class="stat-card bg-blue">
+            <div id="counter-bro" class="stat-val">847</div>
+            <div class="stat-lbl">"bro listen..." moments</div>
+          </div>
+          <div class="stat-card bg-green">
+            <div id="counter-arg" class="stat-val">62</div>
+            <div class="stat-lbl">Random arguments</div>
+          </div>
+          <div class="stat-card bg-orange">
+            <div id="counter-leave" class="stat-val">103</div>
+            <div class="stat-lbl">"i'm leaving" announcements</div>
+          </div>
+          <div class="stat-card bg-red">
+            <div class="stat-val">0</div>
+            <div class="stat-lbl">Actual departures</div>
+          </div>
+          <div class="stat-card bg-purple">
+            <div class="stat-val text-val">CLASSIFIED</div>
+            <div class="stat-lbl">Bad decisions</div>
+          </div>
+          <div class="stat-card bg-yellow">
+            <div class="stat-val">∞</div>
+            <div class="stat-lbl">Laughing at absolutely nothing</div>
+          </div>
+          <div class="stat-card bg-cyan">
+            <div class="stat-val text-val">TOO MANY</div>
+            <div class="stat-lbl">Memories created</div>
+          </div>
+        </div>
+
+        <div class="productivity-card">
+          <div class="prod-col">
+            <h3>Friendship Productivity</h3>
+            <div class="meter-group">
+              <div class="meter-label"><span>Serious conversations</span><span>18%</span></div>
+              <div class="meter-bar"><div class="fill-bar" style="width: 18%; background: #f97316;"></div></div>
+            </div>
+            <div class="meter-group">
+              <div class="meter-label"><span>Nonsense</span><span>100%</span></div>
+              <div class="meter-bar"><div class="fill-bar" style="width: 100%; background: linear-gradient(to right, #fb923c, #ef4444);"></div></div>
+            </div>
+          </div>
+
+          <div class="prod-col">
+            <h3>Vital signs</h3>
+            <div class="meter-group">
+              <div class="meter-label"><span>Emotional Stability (Loading...)</span><span>72%</span></div>
+              <div class="meter-bar"><div class="fill-bar" style="width: 72%; background: #22c55e;"></div></div>
+            </div>
+            <div class="meter-row">
+              <span>Common Sense:</span>
+              <span class="badge-404">404 NOT FOUND</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Continue the nonsense →
+      </button>
+    </section>
+
+    <!-- STEP 4: STARTER PACK -->
+    <section id="step-4" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">contents may be ridiculous</p>
+        <h2 class="section-title">🎒 The Friendship Starter Pack</h2>
+      </div>
+
+      <div class="starter-container">
+        <div class="pack-badge-tag">PACK #001</div>
+        <div class="fragile-badge">⚠️ FRAGILE: FRIENDSHIP</div>
+        <div class="starter-grid" id="starter-grid">
+          <!-- Populated by JS with pop effects -->
+        </div>
+        <p class="interactive-hint">(tap stuff, it's interactive, fancy)</p>
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Okay, what's next? →
+      </button>
+    </section>
+
+    <!-- STEP 5: NORMAL HABITS -->
+    <section id="step-5" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">this is fine</p>
+        <h2 class="section-title"><span class="bounce-emoji">🐙</span> Things we somehow made normal</h2>
+      </div>
+
+      <div class="habits-grid" id="habits-grid">
+        <!-- Sticky notes dynamically rendered -->
+      </div>
+
+      <div class="add-habit-wrapper">
+        <button id="add-habit-btn" class="add-habit-btn" onclick="showAddHabitInput()">
+          Add another questionable habit +
+        </button>
+        <form id="add-habit-form" class="add-habit-form" style="display:none;" onsubmit="handleNewHabit(event)">
+          <input type="text" id="habit-input" placeholder="e.g. Laughing in serious moments..." required />
+          <button type="submit" class="neo-btn btn-green-sm">Add</button>
+          <button type="button" class="neo-btn btn-cancel-sm" onclick="hideAddHabitInput()">Cancel</button>
+        </form>
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Next →
+      </button>
+    </section>
+
+    <!-- STEP 6: CORPORATION -->
+    <section id="step-6" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">est. one year ago</p>
+        <h2 class="section-title">🏢 The Very Serious Friendship Corporation™</h2>
+      </div>
+
+      <div class="corp-container">
+        <div class="elevator-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="floors-list" id="floors-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Continue the nonsense →
+      </button>
+    </section>
+
+    <!-- STEP 7: AWARDS -->
+    <section id="step-7" class="step-screen">
+      <div class="step-header">
+        <p class="script-subtitle">and the winner is... obviously</p>
+        <h2 class="section-title">The Friendship Awards</h2>
+      </div>
+
+      <div class="awards-grid" id="awards-grid">
+        <!-- Populated by JS with golden sparkle effects -->
+      </div>
+
+      <button class="neo-btn btn-blue action-btn" onclick="nextStep()">
+        Okay, what's next? →
+      </button>
+    </section>
+
+    <!-- STEP 8: DRAMATIC 1 YEAR (ONE BY ONE) -->
+    <section id="step-8" class="step-screen text-center">
+      <div class="dramatic-container">
+        <p id="dram-line-1" class="dram-text hidden-line">Okay...</p>
+        <p id="dram-line-2" class="dram-text hidden-line">Enough nonsense for a second.</p>
+        <p id="dram-line-3" class="dram-text hidden-line">
+          Somewhere between all the stupid conversations, random jokes, arguments, laughing, complaining, and completely unnecessary chaos...
+        </p>
+        <p id="dram-line-4" class="dram-sub hidden-line">one whole year passed.</p>
+
+        <div id="dram-line-5" class="big-year-reveal hidden-line">
+          <h1 class="giant-year">1 YEAR</h1>
+        </div>
+
+        <p id="dram-line-6" class="days-text hidden-line">365 days of nonsense.</p>
+        <p id="dram-line-7" class="not-bad hidden-line">Not bad, bro.</p>
+      </div>
+
+      <button id="dram-next-btn" class="neo-btn btn-blue action-btn hidden-line" onclick="nextStep()">
+        Okay... one serious thing →
+      </button>
+    </section>
+
+    <!-- STEP 9: BEAUTIFUL SERIOUS LETTER & FINALE -->
+    <section id="step-9" class="step-screen">
+      <div class="letter-paper">
+        <!-- Washi Tape Strips -->
+        <div class="washi-tape-left"></div>
+        <div class="washi-tape-right"></div>
+
+        <!-- Postal Stamp -->
+        <div class="stamp-box">
+          <span class="stamp-icon">💌</span>
+          <span class="stamp-text">YEAR 1</span>
+        </div>
+
+        <h2 class="letter-title">Okay bro... one serious paragraph.</h2>
+
+        <div class="letter-body">
+          <div class="margin-rule"></div>
+
+          <p class="letter-salutation"><strong>Dear Louisss,</strong></p>
+          <p>I really dont want to make cringe but a little bit is okay i guess.</p>
+          <p>Jokes apart, I never thought we would become friends because it all started you havewith us being teammates. I still remember that badminton incident when I got so scared and had no idea what to do because I forgot what you told </p>
+          <p>You’ve become my unpaid therapist lately. I think we’ve both become that for each other—we’ve been trying to figure out what’s real and what’s delusional.This is one of the friendship i never want to loose.</p>. 
+          <p>thank you listening to all my overthinking stuffs and never complianed..... i am really grateful for all those advices Literally you have influenced me in many of my decisions sometimes and thats good We’ve got plenty of years ahead of us—let’s do this!!!!!!!! </p>
+          <p>(btw i have spend a lot of time doing this i expect a very gooooddd reaction)</p>
+          <div class="letter-recap-box">
+            <p>One year down.</p>
+            <p>A ridiculous amount of memories made.</p>
+            <p>And hopefully... a LOT more nonsense to come.</p>
+          </div>
+
+          <div class="letter-footer">
+            <div class="footer-left">
+              <span class="happy-year">Happy One Year of Us !! ♥</span>
+              <button class="love-counter-btn" onclick="sendHeartLove(event)">
+                💖 <span id="heart-count-display">x1</span>
+              </button>
+            </div>
+            <span class="sign-me">– Shreya</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="neo-btn btn-purple action-btn finale-btn" onclick="openFinaleOverlay()">
+        <span>One last thing...</span>
+        <span class="sparkle-icon">✨</span>
+      </button>
+    </section>
+  </main>
+
+  <!-- REUSABLE MODAL DIALOG -->
+  <div id="app-modal" class="modal-backdrop" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div id="modal-icon" class="modal-icon"></div>
+      <h3 id="modal-title" class="modal-title"></h3>
+      <p id="modal-subtitle" class="modal-subtitle"></p>
+      <p id="modal-desc" class="modal-desc"></p>
+      <button class="neo-btn btn-yellow-pill" onclick="closeModal()">okay lol</button>
+    </div>
+  </div>
+
+  <!-- FINALE DARK OVERLAY -->
+  <div id="finale-overlay" class="finale-overlay">
+    <div class="finale-content">
+      <h2 class="finale-heading">Thanks for being one of the best accidental decisions of my life.</h2>
+      <p class="finale-yellow">Now go away.</p>
+      <div>
+        <button class="neo-btn exit-btn" onclick="exitToStart()">exit this way → 🚪</button>
+      </div>
+      <p class="finale-sweet">(okay... that was actually really sweet)</p>
+      <button class="finale-close-link" onclick="closeFinaleOverlay()">close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
